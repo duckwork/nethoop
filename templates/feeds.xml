@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<opml version="1.0">
+    <head>
+        <title>{{ title }} member feeds</title>
+    </head>
+    <body>
+        {% for member in members %}
+            {% if member.feed %}
+            <outline
+                type="rss"
+                text="{{ member.name }}"
+                title="{{ member.name }}"
+                xmlUrl="{{ member.feed }}"
+                htmlUrl="{{ member.href }}"
+                />
+            {% endif %}
+        {% endfor %}
+    </body>
+</opml>

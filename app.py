@@ -4,16 +4,21 @@ from yaml import safe_load
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def root():
-    return render_template('index.html', members=hoop_members())
+    return render_template("index.html", members=hoop_members())
+
+
+@app.route("/feeds.xml")
+def feeds():
+    return render_template("feeds.xml", members=hoop_members())
 
 
 def hoop_members():
-    with open('data/members.yaml') as f:
+    with open("data/members.yaml") as f:
         members = safe_load(f)
     return members
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
