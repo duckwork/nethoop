@@ -1,0 +1,6 @@
+# PIP requirements that I don't want the world to see
+ignore_requirements.txt
+
+# Compiled stuff
+*.pyc
+*.pyo
