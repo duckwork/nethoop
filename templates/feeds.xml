@@ -5,16 +5,8 @@
         <title>{{ title }} member feeds</title>
     </head>
     <body>
-        {% for member in members %}
-            {% if member.feed %}
-            <outline
-                type="rss"
-                text="{{ member.name }}"
-                title="{{ member.name }}"
-                xmlUrl="{{ member.feed }}"
-                htmlUrl="{{ member.href }}"
-                />
-            {% endif %}
-        {% endfor %}
+        {% for m in members %} {% if m.feed %}
+            <outline type="rss" text="{{ m.name }}" title="{{ m.name }}" xmlUrl="{{ m.feed }}" htmlUrl="{{ m.href }}" />
+        {% endif %} {% endfor %}
     </body>
 </opml>
