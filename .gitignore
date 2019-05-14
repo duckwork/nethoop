@@ -4,3 +4,6 @@ ignore_requirements.txt
 # Compiled stuff
 *.pyc
 *.pyo
+
+# Fluff
+.pep8
