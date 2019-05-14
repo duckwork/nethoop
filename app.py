@@ -1,16 +1,20 @@
-from flask import Flask, request
+from flask import Flask
 from yaml import safe_load
 
-nethoop = Flask(__name__)
+app = Flask(__name__)
 
-@nethoop.route('/')
+
+@app.route('/')
 def root():
-    ret = "Nethoop v. 0.0.1"
-          "Members: "+hoop_members('data/members.yaml')
+    ret = ("Nethoop v. 0.0.1" "Members: " + hoop_members())
     return ret
 
-def hoop_members(fname):
-    return yaml.safe_load(fname)
+
+def hoop_members():
+    with open('data/members.yaml') as f:
+        members = safe_load(f)
+    return members
+
 
 if __name__ == '__main__':
-    nethoop.run()
+    app.run()

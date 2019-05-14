@@ -1,1 +1,1 @@
-web: gunicorn app:nethoop
+web: gunicorn app:app
