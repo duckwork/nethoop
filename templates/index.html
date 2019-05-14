@@ -13,17 +13,8 @@
         <h1>{{ title }}</h1>
         <h2>v. {{ version }}</h2>
     </header>
-    <main role="main" class="container">
-    <section id="members">
-        <h1>Members</h1>
-        <ul>
-            {% for m in members %}
-            <li><a href="{{ m.href }}">{{ m.name }}</a>
-                (<a href="{{ m.feed }}">feed</a>)
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
-    </main>
+    {% include "members.html" ignore missing %}
+    {% include "about.html" ignore missing %}
+    {% include "join.html" ignore missing %}
 </body>
 </html>
