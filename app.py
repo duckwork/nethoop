@@ -3,18 +3,18 @@ from yaml import safe_load
 
 app = Flask(__name__)
 
-TITLE = "Writers of the Fediverse!"
+VARS = {"title": "Writers of the Fediverse!", "version": "0.0.3"}
 
 
 @app.route("/")
 def root():
-    return render_template("index.html", title=TITLE, members=hoop_members())
+    return render_template("index.html", members=hoop_members(), **VARS)
 
 
 @app.route("/feeds.xml")
 def feeds_xml():
     response = make_response(
-        render_template("feeds.xml", title=TITLE, members=hoop_members())
+        render_template("feeds.xml", members=hoop_members(), **VARS)
     )
     response.headers["Content-Type"] = "application/xml"
     return response
