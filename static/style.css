@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Serif&subset=latin-ext');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'PT Mono', monospace;
+    line-height: 1.5;
+    background: linear-gradient(cornflowerblue, darkslateblue), blue;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.container {
+    max-width: 50rem;
+    width: 95%;
+    margin: 2rem auto;
+    padding: 2rem;
+    box-shadow: 1rem 1rem 0.1rem rgba(25, 25, 50);
+}
+
+header.container {
+    background: peachpuff;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: "PT Serif", serif;
+}
+
+main.container {
+    background: #efe;
+}
