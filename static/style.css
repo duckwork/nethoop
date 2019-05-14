@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Serif&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=PT+Mono:400,400i|PT+Serif:400,400i');
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@ body {
     background: linear-gradient(cornflowerblue, darkslateblue), blue;
     min-height: 100vh;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
 }
 
 .container {
@@ -22,6 +22,7 @@ body {
     margin: 2rem auto;
     padding: 2rem;
     box-shadow: 1rem 1rem 0.1rem rgba(25, 25, 50);
+    background: #efe;
 }
 
 header.container {
@@ -31,11 +32,60 @@ header.container {
     align-items: baseline;
     justify-content: space-between;
 }
+header.container h1 {
+    margin: 0;
+}
+header.container h1::before {
+    display: none;
+}
+
+section {
+    position: relative;
+}
 
 h1 {
     font-family: "PT Serif", serif;
+    text-transform: capitalize;
+    margin-left: 1.5rem;
+}
+h1::before {
+    content: "#";
+    position: absolute;
+    left: 1.5rem;
 }
 
-main.container {
-    background: #efe;
+li {
+    list-style: none;
+}
+li::before {
+    content: "-";
+    position: absolute;
+    left: 1.5rem;
+}
+
+p,ul {
+    margin-left: 1.5rem;
+}
+p:not(:first-of-type) {
+    text-indent: 5rem;
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+    padding: 0 0.25rem;
+}
+
+a:visited {
+    color: inherit;
+    border-bottom: 1px dashed;
+}
+
+a:hover {
+    background: darkslateblue;
+    color: white;
+    padding-top: 0.5rem;
+    position: relative;
+    z-index: 100;
 }
