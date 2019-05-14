@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nethoop</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="en-US">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Nethoop</h1>
+    <h2>v. 0.0.2</h2>
+    <section id="members">
+        <h1>Members</h1>
+        <ul>
+            {% for m in members %}
+            <li><a href="{{ m.href }}">{{ m.name }}</a>
+                (<a href="{{ m.feed }}">feed</a>)
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

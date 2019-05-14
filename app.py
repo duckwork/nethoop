@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from yaml import safe_load
 
 app = Flask(__name__)
@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    ret = ("Nethoop v. 0.0.1" "Members: " + hoop_members())
-    return ret
+    return render_template('index.html', members=hoop_members())
 
 
 def hoop_members():
