@@ -8,7 +8,12 @@ from yaml import safe_load
 
 app = Flask(__name__)
 
-VARS = {"title": "Writers of the Fediverse!", "version": "0.0.3"}
+VARS = {
+    "keywords": "webring, writing, fediverse",
+    "description": "A webring for creative people",
+    "title": "Writers of the Fediverse!",
+    "version": "0.0.3",
+}
 
 
 class NotAMemberError(Exception):
