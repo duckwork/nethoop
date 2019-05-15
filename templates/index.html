@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }}</title>
+    <title>{% block title %}{{ title }}{% endblock %}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta http-equiv="content-language" content="en-US">
@@ -9,12 +9,31 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    {% block content %}
     <header class="container">
         <h1>{{ title }}</h1>
-        <h2>v. {{ version }}</h2>
+        <h2>a webring</h2>
     </header>
     {% include "members.html" ignore missing %}
     {% include "about.html" ignore missing %}
     {% include "join.html" ignore missing %}
+    {% endblock %}
+    <nav class="top-bar">
+        <a href="https://www.acdw.net">
+            admin by acdw
+        </a>
+        <a href="{{ url_for("hoop_random") }}">
+            random site
+        </a>
+        <a href="{{ url_for("hoop_members") }}">
+            members.json
+        </a>
+        <a href="{{ url_for("feeds_xml") }}">
+            all feeds
+        </a>
+        <a href="{{ url_for("code_of_content") }}">
+            code of content
+        </a>
+    </nav>
 </body>
 </html>
