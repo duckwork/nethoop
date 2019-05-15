@@ -1,5 +1,8 @@
 <section id="members" class="container">
-    <header><h1>Members</h1></header>
+    <header><h1>Members</h1>
+        <h2><a href="{{ url_for("feeds_xml") }}">
+            all feeds</a></h2>
+    </header>
     <ul>
         {% for m in members %}
         <li><a href="{{ m.href }}">{{ m.name }}</a>
