@@ -27,16 +27,20 @@ body {
 
 header.container {
     background: peachpuff;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: baseline;
-    justify-content: space-between;
 }
-header.container h1 {
+header h1 {
     margin: 0;
 }
 header.container h1::before {
     display: none;
+}
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 1.5rem;
 }
 
 section {
@@ -46,12 +50,16 @@ section {
 h1 {
     font-family: "PT Serif", serif;
     text-transform: capitalize;
-    margin-left: 1.5rem;
 }
 h1::before {
     content: "#";
     position: absolute;
     left: 1.5rem;
+}
+
+header h2 {
+    font-size: 1rem;
+    font-style: italic;
 }
 
 li {
@@ -65,6 +73,7 @@ li::before {
 
 p,ul {
     margin-left: 1.5rem;
+    margin-top: 0.5rem;
 }
 p:not(:first-of-type) {
     text-indent: 5rem;
@@ -88,4 +97,23 @@ a:hover {
     padding-top: 0.5rem;
     position: relative;
     z-index: 100;
+}
+
+.top-bar {
+    width: 100%;
+    color: #efe;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.top-bar a:hover {
+    text-transform: uppercase;
+}
+
+.top-bar a::before {
+    content: "+";
+}
+
+.top-bar a:last-child::after {
+    content: "+";
 }
