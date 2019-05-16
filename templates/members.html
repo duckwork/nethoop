@@ -3,11 +3,14 @@
         <h2><a href="{{ url_for("feeds_xml") }}">
             all feeds</a></h2>
     </header>
-    <ul>
+    <dl>
         {% for m in members %}
-        <li><a href="{{ m.href }}">{{ m.name }}</a>
+        <dt><a href="{{ m.href }}">{{ m.name }}</a>
+            {% if m.feed %}
             (<a href="{{ m.feed }}">feed</a>)
-        </li>
+            {% endif %}
+        </dt>
+        <dd>{{ m.desc }}</dd>
         {% endfor %}
-    </ul>
+    </dl>
 </section>
