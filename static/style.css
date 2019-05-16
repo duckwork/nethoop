@@ -141,3 +141,10 @@ header a:hover {
 .top-bar a:last-child::after {
     content: "+";
 }
+
+a.icon, svg.icon {
+    width: 1rem;
+    border-bottom: none;
+}
+
+.icons { float: right; }
