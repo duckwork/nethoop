@@ -38,12 +38,16 @@ def hoop_next():
     go = url_for("hoop_random")
 
     if request.referrer:
-        members = get_members()
-        try:
-            go = nextUrl(request.referrer, members)
-            return redirect(go)
-        except NotAMemberError:
-            pass
+        referrer = request.referrer
+    else:
+        referrer = request.args.get("from", default="example.com")
+
+    members = get_members()
+    try:
+        go = incUrl(referrer, members)
+        return redirect(go)
+    except NotAMemberError:
+        pass
 
     return redirect(go)
 
@@ -53,12 +57,16 @@ def hoop_prev():
     go = url_for("hoop_random")
 
     if request.referrer:
-        members = get_members()
-        try:
-            go = prevUrl(request.referrer, members)
-            return redirect(go)
-        except NotAMemberError:
-            pass
+        referrer = request.referrer
+    else:
+        referrer = request.args.get("from", default="example.com")
+
+    members = get_members()
+    try:
+        go = incUrl(referrer, members, -1, -1)
+        return redirect(go)
+    except NotAMemberError:
+        pass
 
     return redirect(go)
 
@@ -97,26 +105,20 @@ def randomUrl(lst, url=None):
     return u.geturl()
 
 
-def nextUrl(url, lst):
+def incUrl(url, lst, dir=1, defi=0):
+    url = urlparse(url)
+    if url.netloc == "":
+        url = url.path
+    else:
+        url = url.netloc
+
     for i, member in enumerate(lst):
         u = urlparse(member["href"])
-        if urlparse(url).netloc == u.netloc:
+        if url == u.netloc:
             try:
-                return lst[i + 1]["href"]
+                return lst[i + dir]["href"]
             except IndexError:
-                return lst[0]["href"]
-
-    raise NotAMemberError
-
-
-def prevUrl(url, lst):
-    for i, member in enumerate(lst):
-        u = urlparse(member["href"])
-        if urlparse(url).netloc == u.netloc:
-            try:
-                return lst[i - 1]["href"]
-            except IndexError:
-                return lst[-1]["href"]
+                return lst[defi]["href"]
 
     raise NotAMemberError
 
