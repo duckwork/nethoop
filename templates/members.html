@@ -17,7 +17,7 @@
             {% endif %}
         </span>
         </dt>
-        <dd>{{ m.desc }}</dd>
+        <dd>{{ m.desc|safe }}</dd>
         {% endfor %}
     </dl>
 </section>
