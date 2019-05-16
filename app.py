@@ -35,40 +35,12 @@ def feeds_xml():
 
 @app.route("/next")
 def hoop_next():
-    go = url_for("hoop_random")
-
-    if request.referrer:
-        referrer = request.referrer
-    else:
-        referrer = request.args.get("from", default="example.com")
-
-    members = get_members()
-    try:
-        go = incUrl(referrer, members)
-        return redirect(go)
-    except NotAMemberError:
-        pass
-
-    return redirect(go)
+    return hoop_inc(request)
 
 
 @app.route("/prev")
 def hoop_prev():
-    go = url_for("hoop_random")
-
-    if request.referrer:
-        referrer = request.referrer
-    else:
-        referrer = request.args.get("from", default="example.com")
-
-    members = get_members()
-    try:
-        go = incUrl(referrer, members, -1, -1)
-        return redirect(go)
-    except NotAMemberError:
-        pass
-
-    return redirect(go)
+    return hoop_inc(request, -1, -1)
 
 
 @app.route("/random")
@@ -121,6 +93,21 @@ def incUrl(url, lst, dir=1, defi=0):
                 return lst[defi]["href"]
 
     raise NotAMemberError
+
+
+def hoop_inc(req, dir=1, defi=0):
+    go = url_for("hoop_random")
+
+    ref = request.args.get("from", default=req.referrer or "example.com")
+
+    members = get_members()
+    try:
+        go = incUrl(ref, members, dir, defi)
+        return redirect(go)
+    except NotAMemberError:
+        pass
+
+    return redirect(go)
 
 
 if __name__ == "__main__":
