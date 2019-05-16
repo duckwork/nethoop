@@ -68,7 +68,7 @@ li {
 }
 li::before,
 dt::before {
-    content: "-";
+    content: "+";
     position: absolute;
     left: 1.5rem;
 }
