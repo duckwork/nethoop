@@ -41,6 +41,7 @@ header {
     align-items: baseline;
     justify-content: space-between;
     margin-left: 1.5rem;
+    position: relative;
 }
 
 section {
@@ -54,7 +55,7 @@ h1 {
 h1::before {
     content: "#";
     position: absolute;
-    left: 1.5rem;
+    left: -2rem;
 }
 
 header h2 {
@@ -65,13 +66,23 @@ header h2 {
 li {
     list-style: none;
 }
-li::before {
+li::before,
+dt::before {
     content: "-";
     position: absolute;
     left: 1.5rem;
 }
 
-p,ul {
+dt:not(:first-child) {
+    margin-top: 1rem;
+}
+
+dd {
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+}
+
+p,ul,dl {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
 }
@@ -97,6 +108,19 @@ a:hover {
     padding-top: 0.5rem;
     position: relative;
     z-index: 100;
+}
+
+header a:link {
+    border-bottom: none;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid transparent;
+}
+
+header a:hover {
+    color: inherit;
+    background: inherit;
+    border-bottom: 1px solid;
 }
 
 .top-bar {
