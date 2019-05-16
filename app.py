@@ -35,26 +35,32 @@ def feeds_xml():
 
 @app.route("/next")
 def hoop_next():
+    go = url_for("hoop_random")
+
     if request.referrer:
         members = get_members()
         try:
             go = nextUrl(request.referrer, members)
             return redirect(go)
         except NotAMemberError:
-            go = url_for("hoop_random")
-            return redirect(go)
+            pass
+
+    return redirect(go)
 
 
 @app.route("/prev")
 def hoop_prev():
+    go = url_for("hoop_random")
+
     if request.referrer:
         members = get_members()
         try:
             go = prevUrl(request.referrer, members)
             return redirect(go)
         except NotAMemberError:
-            go = url_for("hoop_random")
-            return redirect(go)
+            pass
+
+    return redirect(go)
 
 
 @app.route("/random")
