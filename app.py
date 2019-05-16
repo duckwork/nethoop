@@ -2,8 +2,7 @@ import json
 from random import choice
 from urllib.parse import urlparse
 
-from flask import (Flask, make_response, redirect, render_template, request,
-                   url_for)
+from flask import Flask, make_response, redirect, render_template, request, url_for
 from yaml import safe_load
 
 app = Flask(__name__)
@@ -61,7 +60,7 @@ def hoop_prev():
 @app.route("/random")
 def hoop_random():
     go = randomUrl(get_members(), request.referrer)
-    return go
+    return redirect(go)
 
 
 @app.route("/members")
