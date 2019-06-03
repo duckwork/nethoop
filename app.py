@@ -86,11 +86,14 @@ def incUrl(url, lst, dir=1, defi=0):
 
     for i, member in enumerate(lst):
         u = urlparse(member["href"])
-        if url == u.netloc:
+        if url == u.netloc or url == u.netloc + u.path:
             try:
-                return lst[i + dir]["href"]
+                ret = lst[i + dir]["href"]
             except IndexError:
-                return lst[defi]["href"]
+                ret = lst[defi]["href"]
+
+            print(ret)
+            return ret
 
     raise NotAMemberError
 
