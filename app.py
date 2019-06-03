@@ -106,7 +106,6 @@ def hoop_inc(req, dir=1, defi=0):
     members = get_members()
     try:
         go = incUrl(ref, members, dir, defi)
-        return redirect(go)
     except NotAMemberError:
         pass
 
