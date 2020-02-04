@@ -8,3 +8,6 @@ If you fork this repo, you'll need to hook it into Heroku too.
 
 Then, just edit data/members.yaml, commit, and push.
 It should update!
+
+Copyright (C) 2019-2020 Case Duckworth
+LICENSE: MIT
