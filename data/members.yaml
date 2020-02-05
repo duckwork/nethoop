@@ -27,15 +27,28 @@
   href: http://alexoliver.beecroftbooks.com/
   desc: >-
       <p>A queer eye in your sci-fi
-      <p>I write arcanepunk and space opera. I love the intersection of history,
-      fantasy, science and mystery, and am only really happy when at least two
-      leaves of that venn diagram overlap.
+      <p>I write arcanepunk and space opera. I love the intersection of
+      history, fantasy, science and mystery, and am only really happy
+      when at least two leaves of that venn diagram overlap.
   fedi: "https://sunbeam.city/@galadhir"
 
 - name: Andreas Jennische
   href: http://write.as/ajes
   desc: >-
       My name is Andreas Jennische.
-      I live in Stockholm, Sweden but spend many weekends in a small and old cottage in the country side.
-      Journalist. Love reading and writing. Dad of three.
+      I live in Stockholm, Sweden but spend many weekends in a small
+      and old cottage in the country side.  Journalist. Love reading
+      and writing. Dad of three.
   fedi: "https://writing.exchange/@ajes"
+
+- name: Liaizon Wakest
+  href: https://scream.today/daily
+  desc: >-
+      Liaizon Wakest grew up in an anarchist commune in rural
+      America. They can be found climbing into dumpsters from Mexico to
+      Kazakhstan looking for trash to make art with. In recent years
+      they have been focused on research into ethical technology
+      and infrastructural anarchism. Find out more about them on
+      <a href="https://wake.st">wake.st</a>.
+  fedi: https://social.wake.st/@liaizon
+  feed: https://scream.today/daily/feed/
