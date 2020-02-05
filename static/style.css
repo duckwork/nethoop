@@ -10,6 +10,7 @@ body {
     font-size: 18px;
     font-family: 'PT Mono', monospace;
     line-height: 1.5;
+	color: black;
     background: linear-gradient(cornflowerblue, darkslateblue), blue;
     min-height: 100vh;
     display: flex;
